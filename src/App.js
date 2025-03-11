@@ -5,14 +5,27 @@ import Home from "./pages/Home";
 import Root from "./pages/Root";
 import Addpost from "./pages/Addpost";
 import Post from "./pages/Post";
+import Mypostpage from "./pages/Mypost";
+import SignupPage from "./pages/SignUp";
+import LogInpage from "./pages/LogIn";
+import Postroot from "./pages/Postroot";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
     children: [
-      { index: true, element: <Home /> },
-      { path: "/add-posts", element: <Addpost /> },
-      { path: "/posts", element: <Post /> },
+      {
+        index: "/",
+        element: <Postroot />,
+        children: [
+          { index: true, element: <Home /> },
+          { path: "/add-posts", element: <Addpost /> },
+          { path: "/posts", element: <Post /> },
+          { path: "/myposts", element: <Mypostpage /> },
+        ],
+      },
+      { path: "/signup", element: <SignupPage /> },
+      { path: "/login", element: <LogInpage /> },
     ],
   },
 ]);

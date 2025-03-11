@@ -1,9 +1,7 @@
 import React from "react";
 import Gatposts from "../compenents/posts/getposts/Gatposts";
-const Post = () => {
+const Mypost = () => {
   return <Gatposts />;
 };
 
-export default Post;
-
-
+export default Mypost;

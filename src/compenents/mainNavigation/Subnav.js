@@ -9,7 +9,7 @@ const Subnav = () => {
           <Link to={"/posts"}> posts</Link>
         </li>
         <li>
-          <Link to={"/m"}> Myposts</Link>
+          <Link to={"/myposts"}> Myposts</Link>
         </li>
         <li>
           <Link to={"/add-posts"}> Add posts</Link>
