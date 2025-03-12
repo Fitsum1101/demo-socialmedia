@@ -1,10 +1,11 @@
 import React from "react";
+import { Form } from "react-router";
 import classes from "./Login.module.css";
 import TextInput from "../input/text/TextInput";
 import Button from "../button/Button";
 const Login = () => {
   return (
-    <form className={classes.form}>
+    <Form method="POST" className={classes.form}>
       <TextInput
         placeholder={"please insert your Email"}
         name={"email"}
@@ -16,7 +17,7 @@ const Login = () => {
         type={"password"}
       />
       <Button>submit</Button>
-    </form>
+    </Form>
   );
 };
 

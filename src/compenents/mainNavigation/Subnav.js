@@ -6,7 +6,7 @@ const Subnav = () => {
     <div className={classes.subNav}>
       <ul>
         <li>
-          <Link to={"/posts"}> posts</Link>
+          <Link className={classes.active} to={"/posts"}> posts</Link>
         </li>
         <li>
           <Link to={"/myposts"}> Myposts</Link>

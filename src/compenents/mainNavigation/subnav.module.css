@@ -11,9 +11,11 @@
 }
 .subNav ul li a {
   text-decoration: none;
+  color: #fff;
   font-weight: 600;
 }
 
-.subNav ul li a:hover {
+.subNav ul li a:hover,
+.subNav ul li a.active {
   color: rgb(0, 238, 255);
 }
