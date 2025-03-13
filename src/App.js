@@ -1,5 +1,6 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import "./App.css";
 import Home from "./pages/Home";
 import Root from "./pages/Root";
@@ -9,6 +10,7 @@ import Mypostpage from "./pages/Mypost";
 import SignupPage, { action as SingupAction } from "./pages/SignUp";
 import LogInpage, { action as loginAction } from "./pages/LogIn";
 import Postroot from "./pages/Postroot";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,7 +27,11 @@ const router = createBrowserRouter([
         ],
       },
       { path: "/signup", element: <SignupPage />, action: SingupAction },
-      { path: "/login", element: <LogInpage />, action: loginAction },
+      {
+        path: "/login",
+        element: <LogInpage />,
+        action: loginAction,
+      },
     ],
   },
 ]);

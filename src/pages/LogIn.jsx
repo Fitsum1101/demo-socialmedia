@@ -1,7 +1,7 @@
 import Login from "../compenents/Auth/Login";
 import { redirect } from "react-router";
 
-const LogIn = () => {
+const LogIn = ({ handleLogin }) => {
   return <Login />;
 };
 
@@ -25,14 +25,15 @@ export const action = async ({ request, params }) => {
       }),
     });
     if (result.status === 422) {
-      throw new Error("invalide user input");
+      throw new Error("invalid user input");
+    }
+
+    if (result.status !== 200 && result.status !== 201) {
+      throw new Error("The server is not responding ");
     }
 
     const data = await result.json();
     localStorage.setItem("token", data.token);
-
-    console.log(data);
-
     return redirect("/");
   } catch (error) {
     console.log(error);

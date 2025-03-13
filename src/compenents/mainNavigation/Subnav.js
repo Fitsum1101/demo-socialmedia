@@ -1,9 +1,7 @@
 import React from "react";
 import classes from "./subnav.module.css";
 import { Link } from "react-router";
-import { useSelector } from "react-redux";
 const Subnav = () => {
-  const auth = useSelector((state) => state.isAuth);
 
   
   return (
