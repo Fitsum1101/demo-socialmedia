@@ -1,5 +1,6 @@
-import React from "react";
 import Login from "../compenents/Auth/Login";
+import { redirect } from "react-router";
+
 const LogIn = () => {
   return <Login />;
 };
@@ -26,12 +27,13 @@ export const action = async ({ request, params }) => {
     if (result.status === 422) {
       throw new Error("invalide user input");
     }
-    // if (result.status !== 200 || result.status !== 201) {
-    //   throw new Error("user not authticated");
-    // }
+
     const data = await result.json();
     localStorage.setItem("token", data.token);
-    
+
+    console.log(data);
+
+    return redirect("/");
   } catch (error) {
     console.log(error);
   }
