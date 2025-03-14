@@ -1,15 +1,21 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-const initialState = { isAuth: false };
+import { getToken, clearToken } from "./localstorage";
+
+// const tokenExist = localStorage.getItem("token") ? true : false;
+
+const initialState = { isAuth: getToken("token") };
 
 const user = createSlice({
   name: "user",
   initialState,
   reducers: {
     login: (state, action) => {
-      state.isAuth = true;
+      const tokenExist = getToken("token") ? true : false;
+      state.isAuth = tokenExist;
     },
     logout: (state, action) => {
+      clearToken("token");
       state.isAuth = false;
     },
   },

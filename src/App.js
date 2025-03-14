@@ -8,7 +8,7 @@ import Addpost from "./pages/Addpost";
 import Post from "./pages/Post";
 import Mypostpage from "./pages/Mypost";
 import SignupPage, { action as SingupAction } from "./pages/SignUp";
-import LogInpage, { action as loginAction } from "./pages/LogIn";
+import LogInpage from "./pages/LogIn";
 import Postroot from "./pages/Postroot";
 
 const router = createBrowserRouter([
@@ -30,7 +30,6 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <LogInpage />,
-        action: loginAction,
       },
     ],
   },

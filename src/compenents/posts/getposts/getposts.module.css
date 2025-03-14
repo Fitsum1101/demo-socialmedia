@@ -13,7 +13,7 @@
   justify-content: center;
   padding: 1rem;
   border-radius: 0.5rem;
-  background-color: rgb(0, 238, 255);
+  background-color: blue;
 }
 .container p:first-of-type {
   font-size: 2rem;
@@ -24,7 +24,7 @@
 }
 .container p:last-of-type {
   font-size: 1.3rem;
-  color: #333;
+  color: white;
   margin: 1rem 0;
 }
 .container div {
