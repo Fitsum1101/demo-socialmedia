@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./Login.module.css";
 import TextInput from "../input/text/TextInput";
 import { useRef } from "react";
@@ -23,33 +23,36 @@ const Login = () => {
     password = password.current.value;
     email = email.current.value;
 
-    try {
-      const result = await fetch("http://localhost:8080/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      });
-      const data = await result.json();
+    if (password.length > 0 && email.length > 0)
+      try {
+        const result = await fetch("http://localhost:8080/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        });
+        const data = await result.json();
 
-      if (result.status === 422) {
-        return setError(data);
-      }
+        if (result.status === 422) {
+          return setError(data.error);
+        }
 
-      if (result.status !== 200 && result.status !== 201) {
-        throw new Error("The server is not responding ");
+        if (result.status !== 200 && result.status !== 201) {
+          throw new Error("The server is not responding ");
+        }
+        setToken("token", data.token);
+        dispatch(authaction.login());
+        handleRedirect();
+      } catch (error) {
+        console.log(error);
       }
-      setToken("token", data.token);
-      dispatch(authaction.login());
-      handleRedirect();
-    } catch (error) {
-      console.log(error);
-    }
   };
+
+  // console.log(error);
 
   if (!redir)
     return (
@@ -60,8 +63,8 @@ const Login = () => {
           type={"email"}
           ref={email}
         />
-        
-        {error && <p>error</p>}
+
+        {error && error.email && <p>{error.email}</p>}
 
         <TextInput
           placeholder={"password please"}
@@ -69,6 +72,7 @@ const Login = () => {
           type={"password"}
           ref={password}
         />
+        {error && error.password && <p>{error.password}</p>}
         <Button handleClick={handleClick}>submit</Button>
       </form>
     );
@@ -108,3 +112,37 @@ export default Login;
 //       console.log(error);
 //     }
 // }, []);
+
+// const handleClick = async (e) => {
+//   e.preventDefault();
+
+//   password = password.current.value;
+//   email = email.current.value;
+
+//   try {
+//     const result = await fetch("http://localhost:8080/login", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({
+//         email,
+//         password,
+//       }),
+//     });
+//     const data = await result.json();
+
+//     if (result.status === 422) {
+//       return setError(data.error);
+//     }
+
+//     if (result.status !== 200 && result.status !== 201) {
+//       throw new Error("The server is not responding ");
+//     }
+//     setToken("token", data.token);
+//     dispatch(authaction.login());
+//     handleRedirect();
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
