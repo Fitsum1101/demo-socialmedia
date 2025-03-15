@@ -6,12 +6,12 @@ import { Form } from "react-router";
 import Button from "../../button/Button";
 const Addposts = () => {
   return (
-    <form className={classes.form} action="">
-      <TextInput placeholder={"title"} />
+    <Form className={classes.form} method="POST">
+      <TextInput name={"title"} placeholder={"title"} />
       <FileInput placeholder={"Your Image Please"} />
-      <textarea placeholder="post descripton"></textarea>
+      <textarea name="content" placeholder="post descripton"></textarea>
       <Button type={"submit"}> Add Post</Button>
-    </form>
+    </Form>
   );
 };
 

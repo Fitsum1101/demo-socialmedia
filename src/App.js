@@ -4,8 +4,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
 import Root from "./pages/Root";
-import Addpost from "./pages/Addpost";
-import Post from "./pages/Post";
+import Addpost, { action as createPostAction } from "./pages/Addpost";
+import Post, { loader as postLoader } from "./pages/Post";
 import Mypostpage from "./pages/Mypost";
 import SignupPage, { action as SingupAction } from "./pages/SignUp";
 import LogInpage from "./pages/LogIn";
@@ -21,8 +21,12 @@ const router = createBrowserRouter([
         element: <Postroot />,
         children: [
           { index: true, element: <Home /> },
-          { path: "/add-posts", element: <Addpost /> },
-          { path: "/posts", element: <Post /> },
+          {
+            path: "/add-posts",
+            element: <Addpost />,
+            action: createPostAction,
+          },
+          { path: "/posts", element: <Post />, loader: postLoader },
           { path: "/myposts", element: <Mypostpage /> },
         ],
       },
