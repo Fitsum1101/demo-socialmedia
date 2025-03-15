@@ -2,7 +2,6 @@ import React from "react";
 import Addposts from "../compenents/posts/addposts/Addposts";
 import { getToken } from "../store/localstorage";
 import { redirect } from "react-router";
-import { useNavigation } from "react-router";
 const Addpost = () => {
   return (
     <>
@@ -19,8 +18,6 @@ export const action = async ({ request, params }) => {
   const content = formData.get("content");
   const file = formData.get("file");
 
-  console.log(file);
-
   const newFileDate = new FormData();
 
   newFileDate.append("file", file);
@@ -31,12 +28,10 @@ export const action = async ({ request, params }) => {
   const result = await fetch("http://localhost:8080/posts", {
     method: "POST",
     headers: {
-      authorization: getToken("token"), // Corrected spelling here
+      authorization: getToken("token"), 
     },
     body: newFileDate,
   });
-
-  console.log(result);
 
   if (!result.ok) {
     throw new Error("product can not be inserted");

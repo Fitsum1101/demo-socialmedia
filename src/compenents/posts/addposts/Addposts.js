@@ -9,7 +9,7 @@ const Addposts = () => {
   return (
     <>
       {navigation.state === "submitting" && <h1>Loading...</h1>}
-      <Form className={classes.form} method="POST">
+      <Form className={classes.form} method="POST" encType="multipart/form-data">
         <TextInput name={"title"} placeholder={"title"} />
         <FileInput placeholder={"Your Image Please"} />
         <textarea name="content" placeholder="post descripton"></textarea>
