@@ -7,3 +7,6 @@ const Post = () => {
 export default Post;
 
 
+export const action = async (req,params) =>{
+  const result = await fetch('http://localhost:')
+}
