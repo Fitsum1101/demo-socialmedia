@@ -3,7 +3,7 @@ import Gatposts from "../compenents/posts/getposts/Gatposts";
 import { useLoaderData } from "react-router";
 const Post = () => {
   const posts = useLoaderData();
-  return <Gatposts posts={posts} />;
+  return <Gatposts updateDelete={false} posts={posts} />;
 };
 
 export default Post;

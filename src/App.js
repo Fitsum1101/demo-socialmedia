@@ -6,10 +6,11 @@ import Home from "./pages/Home";
 import Root from "./pages/Root";
 import Addpost, { action as createPostAction } from "./pages/Addpost";
 import Post, { loader as postLoader } from "./pages/Post";
-import Mypostpage from "./pages/Mypost";
+import Mypostpage, { loader as userPostLoader } from "./pages/Mypost";
 import SignupPage, { action as SingupAction } from "./pages/SignUp";
 import LogInpage from "./pages/LogIn";
 import Postroot from "./pages/Postroot";
+import UpdatePost, { loader as updatePostLoader } from "./pages/UpdatePost";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,16 @@ const router = createBrowserRouter([
             action: createPostAction,
           },
           { path: "/posts", element: <Post />, loader: postLoader },
-          { path: "/myposts", element: <Mypostpage /> },
+          {
+            path: "/posts/myposts",
+            element: <Mypostpage />,
+            loader: userPostLoader,
+          },
+          {
+            path: "/posts/myposts/update/:postId",
+            element: <UpdatePost />,
+            loader: updatePostLoader,
+          },
         ],
       },
       { path: "/signup", element: <SignupPage />, action: SingupAction },

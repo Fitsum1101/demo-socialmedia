@@ -17,6 +17,7 @@ export const action = async ({ request, params }) => {
   const title = formData.get("title");
   const content = formData.get("content");
   const file = formData.get("file");
+  const postId = formData.get("postId");
 
   const newFileDate = new FormData();
 
@@ -25,13 +26,22 @@ export const action = async ({ request, params }) => {
   newFileDate.append("content", content);
   // const formDate
 
-  const result = await fetch("http://localhost:8080/posts", {
-    method: "POST",
+  let URL = "http://localhost:8080/posts";
+  // /posts/update/:postId
+  let method = request.method;
+  if (method === "PUT") {
+    URL += "/update/" + postId;
+  }
+  console.log(URL);
+  const result = await fetch(URL, {
+    method: method,
     headers: {
-      authorization: getToken("token"), 
+      authorization: getToken("token"),
     },
     body: newFileDate,
   });
+
+  console.log(result);
 
   if (!result.ok) {
     throw new Error("product can not be inserted");
