@@ -22,7 +22,7 @@ const Subnav = () => {
         {isAuth && (
           <>
             <li>
-              <Link to={"/myposts"}> Myposts</Link>
+              <Link to={"/posts/myposts"}> Myposts</Link>
             </li>
             <li>
               <Link to={"/add-posts"}> Add posts</Link>
