@@ -1,34 +1,68 @@
-.form {
+.container {
   display: flex;
   flex-direction: column;
-  max-width: 50rem;
-  width: 35rem;
-  margin: 0 auto;
-  gap: 2rem;
-  padding: 2rem;
-  border: 1px solid #333;
-  background-color: rgb(0, 238, 255);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  align-items: center;
+  padding: 4rem;
+  background-color: #f2f4f7;
+  height: 90vh;
+  align-items: center;
 }
-
-.form input {
-  border: 1px solid #333;
-  padding: 0.5rem 1rem;
-  background-color: #fff;
+.container .hero h1 {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  color: #1877f2;
 }
-.form input::placeholder {
-  text-transform: capitalize;
-  font-size: 1.3rem;
+.container .hero p {
+  font-size: 1.8rem;
   font-weight: 500;
 }
-.form textarea {
-  height: 15rem;
-  padding: 1rem;
+.container .form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-basis: 25%;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  background-color: #fff;
+  box-shadow: 0 2rem 2rem #cecfd1;
+  border-radius: 1rem;
+  width: 40rem;
 }
 
-/* .form button {
-    align-self: flex-end;
-  } */
+.container .form p {
+  padding: 1rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.container .form .error {
+  border: 1px solid #e66d4d;
+  background-color: #ffebe8;
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.container .form input {
+  padding: 1.5rem 1rem;
+  border: 1px solid #d5d6d6;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 1.7rem;
+}
+.container .form input::placeholder {
+  font-size: 1.7rem;
+}
+
+.container .form button {
+  border: none;
+  font-size: 2rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  margin-bottom: 2rem;
+}
+
+.container .form button:hover {
+  background-color: #0562dbee;
+  color: #fff;
+}
