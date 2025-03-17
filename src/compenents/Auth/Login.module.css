@@ -22,7 +22,9 @@
   flex-basis: 25%;
   gap: 1.5rem;
   padding: 1rem 1.5rem;
-  background-color: #fff;
+  /* background-color: #fff;
+   */
+   background-color: #fff;
   box-shadow: 0 2rem 2rem #cecfd1;
   border-radius: 1rem;
   width: 40rem;
