@@ -5,7 +5,6 @@ import TextInput from "../input/text/TextInput";
 import FileInput from "../input/file/FileInput";
 import Button from "../button/Button";
 const Signup = () => {
-  const actionData = useActionData();
   return (
     <Form className={classes.form} method="POST">
       <div className={classes.hero}>
