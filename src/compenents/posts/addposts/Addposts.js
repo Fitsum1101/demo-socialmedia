@@ -25,9 +25,9 @@ const Addposts = ({ data }) => {
         <textarea
           defaultValue={data && data.content}
           name="content"
-          placeholder="post descripton"
+          placeholder="Message"
         ></textarea>
-        <Button type={"submit"}>{data ? "Update post" : "Add post"}</Button>
+        <Button type={"submit"}>{data ? "Update post" : "Share"}</Button>
       </Form>
     </>
   );

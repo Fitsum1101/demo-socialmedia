@@ -1,9 +1,11 @@
 .Maincontainer {
-  max-width: 100rem;
+  max-width: 90rem;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .container {
@@ -11,21 +13,43 @@
   flex-direction: column;
   gap: 1rem;
   justify-content: center;
+  align-items: self-start;
   padding: 1rem;
   border-radius: 0.5rem;
-  background-color: blue;
+  background-color: #fff;
+  box-shadow: 0 1rem 2rem #a9cce3;
+  width: 40rem;
+}
+.container .profile {
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 1px solid #939090;
+  padding-bottom: 0.5rem;
+  width: 100%;
+  gap: 1rem;
+}
+.container .profile img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+.container .profile .username h3 {
+  font-size: 2rem;
+  font-weight: 500;
 }
 .container p:first-of-type {
   font-size: 2rem;
   color: #333;
   font-weight: 500;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
+  color: #1877f2;
   text-align: center;
 }
 .container p:last-of-type {
-  font-size: 1.3rem;
-  color: white;
-  margin: 1rem 0;
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 450;
+  /* margin: 1rem 0; */
 }
 .container div {
   display: flex;
@@ -35,4 +59,30 @@
 }
 .container img {
   width: 100%;
+}
+
+.container .comments {
+  display: flex;
+  justify-content: start;
+  gap: 2rem;
+  padding: 1rem;
+  color: #1877f2;
+  font-size: 1.5rem;
+  border-top: 1px solid #676464;
+  width: 100%;
+  text-transform: capitalize;
+}
+
+.container .comments div {
+  cursor: pointer;
+}
+.container .mybuttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.container .mybuttons button {
+  border: none;
 }

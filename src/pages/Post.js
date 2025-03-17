@@ -15,5 +15,6 @@ export const loader = async (req, params) => {
   }
 
   const data = await result.json();
+  console.log(data.posts);
   return data.posts;
 };

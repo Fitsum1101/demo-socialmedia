@@ -4,7 +4,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0866FF
+  background-color: #fff;
+  border-bottom: 1px solid #cac8c8;
 }
 
 .headers .nav {
@@ -15,9 +16,8 @@
 }
 .headers .nav .naveLogo a {
   text-decoration: none;
-  font-size: 2.5rem;
-  color: #333;
-  text-transform: capitalize;
+  font-size: 3rem;
+  color: #1877f2;
   font-weight: 600;
 }
 .headers .nav ul {

@@ -17,7 +17,7 @@ const Nav = () => {
     <header className={classes.headers}>
       <nav className={classes.nav}>
         <div className={classes.naveLogo}>
-          <Link to={"/"}>Faccebook</Link>
+          <Link to={"/"}>faccebook</Link>
         </div>
         <ul>
           {!auth && (

@@ -19,7 +19,6 @@ const Login = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    console.log(password, email);
     password = password.current.value;
     email = email.current.value;
 
