@@ -1,7 +1,15 @@
 import React from "react";
 
-const TextInput = ({ placeholder, ref, type, value, name }) => {
-  return <input type={type} defaultValue={value} name={name} placeholder={placeholder} ref={ref} />;
+const TextInput = ({ placeholder,  type, value, name, handleChange }) => {
+  return (
+    <input
+      type={type}
+      onChange={handleChange}
+      defaultValue={value}
+      name={name}
+      placeholder={placeholder}
+    />
+  );
 };
 
 export default TextInput;

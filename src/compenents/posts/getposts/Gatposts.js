@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./getposts.module.css";
 import Button from "../../button/Button";
-import { Link } from "react-router";
+import { getSocket } from "../../../store/socket";
 import image from "../../images/pexels-lucasguizo-3780469.jpg";
 const Gatposts = ({ posts, updateDelete, handleDelete }) => {
+  const [newPosts, setNewposts] = useState(posts);
+  getSocket.on("posts", (data) => {
+    console.log(data);
+  });
   return (
     <div className={classes.Maincontainer}>
-      {posts &&
-        posts.length > 0 &&
-        posts.map((post) => (
+      {newPosts &&
+        newPosts.length > 0 &&
+        newPosts.map((post) => (
           <div className={classes.container}>
             <div className={classes.profile}>
               <img src={image} alt="" />

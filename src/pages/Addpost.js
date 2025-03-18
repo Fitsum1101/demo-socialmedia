@@ -2,6 +2,7 @@ import React from "react";
 import Addposts from "../compenents/posts/addposts/Addposts";
 import { getToken } from "../store/localstorage";
 import { redirect } from "react-router";
+
 const Addpost = () => {
   return (
     <>
@@ -32,7 +33,6 @@ export const action = async ({ request, params }) => {
   if (method === "PUT") {
     URL += "/update/" + postId;
   }
-  console.log(URL);
   const result = await fetch(URL, {
     method: method,
     headers: {
@@ -40,8 +40,6 @@ export const action = async ({ request, params }) => {
     },
     body: newFileDate,
   });
-
-  console.log(result);
 
   if (!result.ok) {
     throw new Error("product can not be inserted");

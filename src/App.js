@@ -1,6 +1,5 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 import "./App.css";
 import Home from "./pages/Home";
 import Root from "./pages/Root";
@@ -11,6 +10,7 @@ import SignupPage, { action as SingupAction } from "./pages/SignUp";
 import LogInpage from "./pages/LogIn";
 import Postroot from "./pages/Postroot";
 import UpdatePost, { loader as updatePostLoader } from "./pages/UpdatePost";
+import { init } from "./store/socket";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +50,9 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
+  init().on("connection", () => {
+    console.log("connected");
+  });
   return <RouterProvider router={router}></RouterProvider>;
 };
 
