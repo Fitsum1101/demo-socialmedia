@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import classes from "./Login.module.css";
 import TextInput from "../input/text/TextInput";
-import { useRef } from "react";
 import Button from "../button/Button";
 import { useDispatch } from "react-redux";
 import { authaction } from "../../store/user";
 import { useNavigate } from "react-router";
 import { setToken } from "../../store/localstorage";
 const Login = () => {
-  let email = useRef(null);
-  let password = useRef(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleEmail = (e) => setEmail(e.target.value);
+  const handlePassword = (e) => setPassword(e.target.value);
+  
   const dispatch = useDispatch();
   const [redir, setRedir] = useState(false);
   const navigate = useNavigate();
@@ -18,9 +21,7 @@ const Login = () => {
   const handleRedirect = () => setRedir(true);
 
   const handleClick = async (e) => {
-    e.preventDefault();
-    password = password.current.value;
-    email = email.current.value;
+    e.preventDefault(e);
 
     if (password.length > 0 && email.length > 0)
       try {
@@ -64,7 +65,7 @@ const Login = () => {
             placeholder={" Email"}
             name={"email"}
             type={"email"}
-            ref={email}
+            handleChange={handleEmail}
           />
 
           {error && error.email && <p>{error.email}</p>}
@@ -73,10 +74,10 @@ const Login = () => {
             placeholder={"Password "}
             name={"password"}
             type={"password"}
-            ref={password}
+            handleChange={handlePassword}
           />
           {error && error.password && <p>{error.password}</p>}
-          <Button handleClick={handleClick}>Log In </Button>
+          <Button type={"submit"}>Log In </Button>
         </form>
       </div>
     );
